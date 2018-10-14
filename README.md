@@ -12,7 +12,8 @@ docker pull w303972870/sphinx
 #### 启动命令示例：为了初始化必须指定一个默认的root密码MYSQL_ROOT_PASSWORD
 
 ```
-docker run -dit -p 9002:9002  -p 9312:9312 -p 9306:9306 -v /data/sphinx/:/data/ -v /etc/localtime:/etc/localtime -e MYSQL_ROOT_HOST=192.168.12.% -e MYSQL_ROOT_PASSWORD=123456 -e WSREP_NEW_CLUSTER=yes docker.io/w303972870/mariadb-galera
+docker run -dit -p 9002:9002  -p 9312:9312 -p 9306:9306 -v /data/sphinx/:/data/ -v /etc/localtime:/etc/localtime -e IS_FIRST_INDEXER=yes docker.io/w303972870/sphinx
+docker run -dit -p 9002:9002  -p 9312:9312 -p 9306:9306 -v /data/sphinx/:/data/ -v /etc/localtime:/etc/localtime docker.io/w303972870/sphinx
 ```
 
 |变量|解释|
