@@ -12,7 +12,8 @@ RUN yum -y install make gcc g++ gcc-c++ libtool autoconf automake imake mysql-de
     && make && make install && cp -R /root/sphinx-3.0.3/* /usr/local/sphinx/ && chmod -R +x /usr/local/sphinx/bin/* \
     && rm -rf /root/sphinx* && yum install -y epel-release && yum clean all && yum -y update && yum clean all \
     && yum -y install supervisor cronie yum-cron && yum clean all && mkdir -p /data/supervisor/logs/ /data/supervisor/etc/ \
-    && mkdir -p /data/sphinx/logs/ /data/sphinx/etc/ /data/sphinx/data/ && chmod +x /usr/local/bin/docker-entrypoint.sh
+    && mkdir -p /data/sphinx/logs/ /data/sphinx/etc/ /data/sphinx/data/ && chmod +x /usr/local/bin/docker-entrypoint.sh \
+    && yum clean all
 
 ADD supervisord.conf /data/supervisor/etc/
 ADD sphinx.conf /data/sphinx/etc/
