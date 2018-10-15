@@ -2,9 +2,6 @@
 set -e
 
 chmod 644 /data/etc/my.cnf
-mkdir -p /data/crontab/
-rm -rf /etc/cron.d
-ln -s /data/crontab/ /etc/cron.d
 
 DATA_DIR="/data/database/"
 BUILD_INDEX_TYPE="--rotate"
