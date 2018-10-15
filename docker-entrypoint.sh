@@ -1,8 +1,6 @@
 #!/usr/bin/bash
 set -e
 
-chmod 644 /data/etc/my.cnf
-
 DATA_DIR="/data/database/"
 BUILD_INDEX_TYPE="--rotate"
 BUILD_INDEX_NAME="--all"
