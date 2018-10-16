@@ -20,7 +20,8 @@ if [[ -z "$SKIP_INIT_INDEXER" ]] ;then
         BUILD_INDEX_NAME="--all"
     fi
 
-    /usr/local/sphinx/bin/indexer --config /data/sphinx/etc/sphinx.conf  $BUILD_INDEX_NAME $BUILD_INDEX_TYPE
+    Build_Log=`/usr/local/sphinx/bin/indexer --config /data/sphinx/etc/sphinx.conf  $BUILD_INDEX_NAME $BUILD_INDEX_TYPE`
+    echo $Build_Log
 
     if [[ ! -z "$MERGE" ]] ;then
         IS_MERGE_INDEX="--merge"
