@@ -8,7 +8,7 @@ IS_MERGE_INDEX=""
 
 if [[ -z "$SKIP_INIT_INDEXER" ]] ;then
 
-    if [[ ! -z "$IS_FIRST_INDEXER" -a "$IS_FIRST_INDEXER" == "yes" ]] ;then
+    if [ [ ! -z "$IS_FIRST_INDEXER" ] -a [ "$IS_FIRST_INDEXER" == "yes" ] ] ;then
         BUILD_INDEX_TYPE=""
     else
         BUILD_INDEX_TYPE="--rotate"
