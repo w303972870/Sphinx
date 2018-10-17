@@ -8,10 +8,12 @@ IS_MERGE_INDEX=""
 
 if [[ -z "$SKIP_INIT_INDEXER" ]] ;then
 
-    if [ ! -z "$IS_FIRST_INDEXER" -a "$IS_FIRST_INDEXER" == "yes" ] ;then
-        BUILD_INDEX_TYPE=""
-    else
-        BUILD_INDEX_TYPE="--rotate"
+    if [ ! -z "$IS_FIRST_INDEXER" ] ;then
+        if [ "$IS_FIRST_INDEXER" == "yes" ] ;then
+            BUILD_INDEX_TYPE=""
+        else
+            BUILD_INDEX_TYPE="--rotate"
+        fi
     fi
     
     if [[ ! -z "$BUILD_INDEX" ]] ;then
@@ -19,13 +21,17 @@ if [[ -z "$SKIP_INIT_INDEXER" ]] ;then
     else
         BUILD_INDEX_NAME="--all"
     fi
+    
+    echo "开始执行：/usr/local/sphinx/bin/indexer --config /data/sphinx/etc/sphinx.conf  $BUILD_INDEX_NAME $BUILD_INDEX_TYPE"
 
     Build_Log=`/usr/local/sphinx/bin/indexer --config /data/sphinx/etc/sphinx.conf  $BUILD_INDEX_NAME $BUILD_INDEX_TYPE`
     echo $Build_Log
 
     if [[ ! -z "$MERGE" ]] ;then
         IS_MERGE_INDEX="--merge"
-        /usr/local/sphinx/bin/indexer --config /data/sphinx/etc/sphinx.conf  $IS_MERGE_INDEX $MERGE
+        echo "开始执行：/usr/local/sphinx/bin/indexer --config /data/sphinx/etc/sphinx.conf  $IS_MERGE_INDEX $MERGE"
+        Build_Log=`/usr/local/sphinx/bin/indexer --config /data/sphinx/etc/sphinx.conf  $IS_MERGE_INDEX $MERGE`
+        echo $Build_Log
     else
         IS_MERGE_INDEX=""
     fi
