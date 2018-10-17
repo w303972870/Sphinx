@@ -19,7 +19,7 @@ docker run -dit -p 9002:9002  -p 9312:9312 -p 9306:9306 -v /data/sphinx/:/data/ 
 |变量|解释|
 |:---|:---|
 |SKIP_INIT_INDEXER|跳过初始化索引，直接启动sphinx服务seached|
-|IS_FIRST_INDEXER|为yes时新建索引，否则相当于--rotate重建索引|
+|IS_FIRST_INDEXER|为yes时新建索引，否则相当于--rotate重建索引，暂时弃用！！|
 |BUILD_INDEX|建立的索引名称，不传值时默认--all|
 |MERGE|要合并的索引名称字符串，空格间隔，例如“index1 inde2”,如果存在以上建立索引需求，先执行以上建立索引再执行这个合并|
 
